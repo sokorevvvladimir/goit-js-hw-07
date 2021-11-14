@@ -20,11 +20,27 @@ gallery.insertAdjacentHTML("afterbegin", galleryPic);
 
 
 const openOriginal = function (event) {
-    
-    const instance = basicLightbox.create(`<img scr="${event.target.dataset.source}" alt="${event.target.alt}" width="800" height="600"/>`);
+  
+    const instance = basicLightbox.create(`<img srс="${event.target.dataset.source}" alt="${event.target.alt}" width="800" height="600"/>`);
     instance.show();
     
-    event.preventDefault();
+  event.preventDefault();
+  
+  
+  const onEscClose = function (event) {
+    if (event.code === "Escape") {
+      instance.close();
+      window.removeEventListener('keydown', onEscClose);
+    };
+    
+  };
+  window.addEventListener('keydown', onEscClose);
+  
 };
 
+
 gallery.addEventListener("click", openOriginal);
+
+
+
+
