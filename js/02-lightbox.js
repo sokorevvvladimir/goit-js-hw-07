@@ -11,7 +11,7 @@ const galleryPic = galleryItems.map((galleryItem) =>
 gallery.insertAdjacentHTML("afterbegin", galleryPic);
 
 const openOriginal = function (event) {
-    const lightbox = new SimpleLightbox('.gallery a', {captionsData: 'event.target.alt', captionPosition: 'bottom', captionDelay: 250});
+    const lightbox = new SimpleLightbox('.gallery a', {captionType: 'attr', captionsData: 'alt', captionPosition: 'bottom', captionDelay: 250});
     
     event.preventDefault();
 };
